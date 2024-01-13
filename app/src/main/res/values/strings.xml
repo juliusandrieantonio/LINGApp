@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LINGApp</string>
+    <string name="login">Login</string>
+    <string name="signup">sign up</string>
+</resources>
