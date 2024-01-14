@@ -14,10 +14,12 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.RegistrationPage.RegistrationPageActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ui.LoginPage.LoginPageActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

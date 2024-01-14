@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "865751193203",
+    "project_id": "lingapp-250da",
+    "storage_bucket": "lingapp-250da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865751193203:android:d997c6de9b505d46c0fc06",
+        "android_client_info": {
+          "package_name": "com.example.lingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7xx2KyoXaZdlhZKELCDZeS-C1HmQ9yRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

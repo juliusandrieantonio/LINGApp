@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegistrationPage.RegistrationPageActivity">
+    tools:context=".ui.RegistrationPage.RegistrationPageActivity"
+    android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolBar"
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
-            android:background="@color/lightPrimary"
+            android:background="@color/white"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,7 +40,7 @@
                     android:id="@+id/level2"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
+                    android:background="@drawable/rounded_button"
                     android:backgroundTint="@color/white"
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"
@@ -48,7 +49,7 @@
                     android:id="@+id/level3"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
+                    android:background="@drawable/rounded_button"
                     android:backgroundTint="@color/white"
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"
@@ -58,47 +59,7 @@
                     android:id="@+id/level4"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
-                    />
-
-                <View
-                    android:id="@+id/level5"
-                    android:layout_width="0dp"
-                    android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
-                    />
-
-                <View
-                    android:id="@+id/level6"
-                    android:layout_width="0dp"
-                    android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
-                    />
-
-                <View
-                    android:id="@+id/level7"
-                    android:layout_width="0dp"
-                    android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"
-                    />
-
-                <View
-                    android:id="@+id/level8"
-                    android:layout_width="0dp"
-                    android:layout_height="15dp"
-                    android:background="@drawable/rounded_border"
+                    android:background="@drawable/rounded_button"
                     android:backgroundTint="@color/white"
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"
@@ -140,9 +101,21 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:background="@drawable/rounded_top"
+        android:backgroundTint="@color/lightPrimary"
         android:padding="20dp"
         >
 
+        <View
+            android:layout_width="100dp"
+            android:layout_height="10dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/light"
+            android:layout_gravity="center"
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
         <TextView
             android:id="@+id/headerPrompt"
             android:layout_marginTop="10dp"
@@ -151,7 +124,7 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:textAlignment="center"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/rubrick_moonrocks_regular"
             android:text="@string/prompt"
             android:textColor="@color/black"
             />
@@ -181,35 +154,38 @@
                 android:background="?android:attr/listDivider" />
 
             <EditText
-                android:textColorHint="@color/gray"
+                android:textColorHint="@color/dark"
                 android:textColor="@color/black"
                 android:id="@+id/nameET"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/round_edit_text"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/light"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/first_name"
                 />
             <EditText
-                android:textColorHint="@color/gray"
+                android:textColorHint="@color/dark"
                 android:textColor="@color/black"
                 android:id="@+id/middleNameET"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/round_edit_text"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/light"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/middle_name"
                 />
             <EditText
-                android:textColorHint="@color/gray"
+                android:textColorHint="@color/dark"
                 android:textColor="@color/black"
                 android:id="@+id/surnameET"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/round_edit_text"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/light"
                 android:hint="@string/surname"
                 />
 
@@ -247,10 +223,11 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/round_edit_text"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     >
                     <EditText
-                        android:textColorHint="@color/gray"
+                        android:textColorHint="@color/dark"
                         android:textColor="@color/black"
                         android:id="@+id/weightET"
                         android:inputType="number"
@@ -281,10 +258,11 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/round_edit_text"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     >
                     <EditText
-                        android:textColorHint="@color/gray"
+                        android:textColorHint="@color/dark"
                         android:textColor="@color/black"
                         android:id="@+id/heightET"
                         android:inputType="number"
@@ -339,7 +317,8 @@
                 android:id="@+id/birthdatePicker"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/round_edit_text"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/light"
                 android:gravity="center"
                 >
 
@@ -349,22 +328,22 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:textSize="18sp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:background="@drawable/round_edit_text"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     android:padding="18dp"
                     android:gravity="center_vertical"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/dark"
                     android:text="@string/birthday_sample"/>
 
                 <EditText
-                    android:textColorHint="@color/gray"
+                    android:textColorHint="@color/dark"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
                     android:id="@+id/ageET"
-                    android:background="@drawable/round_edit_text"
-                    android:backgroundTint="@color/lightPrimaryVariant"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     android:padding="10dp"
                     android:inputType="none"
                     android:focusable="false"
@@ -479,250 +458,6 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="200dp"
-                android:layout_height="130dp"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="20dp"
-                app:cardUseCompatPadding="true"
-                >
-                <LinearLayout
-                    android:background="@color/white"
-                    android:id="@+id/others"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ellipsis"
-                        android:contentDescription="@string/male_icon"
-                        app:tint="@color/lightPrimary" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="10dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/RNS"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/levelPrompt"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/level_prompt"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                />
-
-            <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/beginner"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/novice"
-                        android:contentDescription="@string/beginner_s_arm"
-                        android:background="@drawable/circle"
-                        android:padding="5dp"
-                        />
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/novice"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_black"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/novice_prompt"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_light"
-                        />
-
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"/>
-
-                <LinearLayout
-                    android:id="@+id/advance"
-                    android:padding="5dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/advance"
-                        android:contentDescription="@string/beginner_s_arm"
-                        android:background="@drawable/circle"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        />
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/advance"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_black"
-                        android:textAlignment="center"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/advance_prompt"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_light"
-                        />
-
-                </LinearLayout>
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/proficient"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/competent"
-                        android:contentDescription="@string/beginner_s_arm"
-                        android:background="@drawable/circle"
-                        android:padding="5dp"
-                        />
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/proficient"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_black"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/proficient_prompt"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_light"
-                        />
-
-                </LinearLayout>
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"/>
-                <LinearLayout
-                    android:id="@+id/expert"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/expert"
-                        android:contentDescription="@string/beginner_s_arm"
-                        android:background="@drawable/circle"
-                        android:padding="5dp"
-                        />
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/expert"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_black"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/expert_prompt"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppins_light"
-                        />
-
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -755,7 +490,7 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="false">
                 <EditText
-                    android:textColorHint="@color/gray"
+                    android:textColorHint="@color/dark"
                     android:textColor="@color/black"
                     android:drawableStart="@drawable/baseline_person_24"
                     android:drawablePadding="10dp"
@@ -764,7 +499,8 @@
                     android:id="@+id/usernameET"
                     android:autofillHints="username"
                     android:layout_width="match_parent"
-                    android:background="@drawable/round_edit_text"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     android:layout_height="55dp"
                     android:singleLine="true"
                     android:padding="10dp"
@@ -778,7 +514,7 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="false">
                 <EditText
-                    android:textColorHint="@color/gray"
+                    android:textColorHint="@color/dark"
                     android:textColor="@color/black"
                     android:drawableStart="@drawable/baseline_email_24"
                     android:drawablePadding="10dp"
@@ -787,7 +523,8 @@
                     android:id="@+id/emailET"
                     android:autofillHints="username"
                     android:layout_width="match_parent"
-                    android:background="@drawable/round_edit_text"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     android:layout_height="55dp"
                     android:singleLine="true"
                     android:padding="10dp"
@@ -802,7 +539,8 @@
                 android:paddingBottom="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_edit_text"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/light"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleDrawable="@drawable/show_password"
                 app:passwordToggleTint="@color/lightPrimary"
@@ -810,7 +548,7 @@
                 >
 
                 <EditText
-                    android:textColorHint="@color/gray"
+                    android:textColorHint="@color/dark"
                     android:textColor="@color/black"
                     android:drawableTint="@color/black"
                     android:drawableStart="@drawable/baseline_lock_24"
@@ -819,7 +557,8 @@
                     android:autofillHints="password"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
-                    android:background="@drawable/round_edit_text"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light"
                     android:hint="@string/password"
                     android:padding="10dp"
                     android:inputType="textPassword"
@@ -830,158 +569,14 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/medicalRecordsPrompt"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/medical_condition_prompt"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                />
-
-            <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/instruction"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins"
-                />
-
-            <CheckBox
-                android:id="@+id/condition1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/scoliosis"
-                android:textSize="18sp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-
-            <CheckBox
-                android:id="@+id/condition2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/high_blood"
-                android:textSize="18sp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-
-            <CheckBox
-                android:id="@+id/condition3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/condition"
-                android:textSize="18sp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-
-            <CheckBox
-                android:id="@+id/condition4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/condition"
-                android:textSize="18sp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-
-            <CheckBox
-                android:id="@+id/none"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/none"
-                android:textSize="18sp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/agreementPrompt"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0"
-            android:orientation="vertical"
-            >
-
-            <View
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/privacyPolicy"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/dummy_text"
-                        android:textSize="18sp"
-                        android:layout_marginBottom="20dp"
-                        android:textColor="@color/black"
-                        android:paddingStart="40dp"
-                        />
-
-                    <CheckBox
-                        android:id="@+id/checkBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/terms_prompt"
-                        android:textSize="18sp"
-                        android:gravity="top"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/black"
-                        />
-                </LinearLayout>
-            </ScrollView>
-
-
-        </LinearLayout>
-
-
         <Button
             android:id="@+id/navButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:textSize="16sp"
             android:text="@string/button_prompt"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/dark"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"

@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/light"
-                android:layout_height="55dp"
+                android:layout_height="60dp"
                 android:singleLine="true"
                 android:padding="10dp"
                 android:inputType="textEmailAddress"
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
-            app:passwordToggleDrawable="@drawable/show_pasword"
+            app:passwordToggleDrawable="@drawable/show_password"
             app:hintEnabled="false"
             app:passwordToggleTint="@color/lightPrimary"
             >
@@ -86,7 +86,7 @@
                 android:id="@+id/passwordET"
                 android:autofillHints="password"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="60dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/light"
                 android:hint="@string/password"
@@ -105,10 +105,10 @@
         <Button
             android:id="@+id/logIn"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:text="@string/login"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:background="@drawable/rounded_button"/>
 
         <Space
@@ -163,25 +163,15 @@
 <!--        </LinearLayout>-->
 
 
-        <LinearLayout
-            android:id="@+id/createAccountLayout"
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="10dp"
-            android:layout_marginBottom="30dp"
-            >
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/white"
-                android:text="@string/sign_up"
-                android:textSize="18sp"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/white"
+            android:id="@+id/signUp"
+            android:text="@string/sign_up"
+            android:textSize="16sp"/>
 
-        </LinearLayout>
     </LinearLayout>
 
 
