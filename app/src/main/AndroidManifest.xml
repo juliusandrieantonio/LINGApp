@@ -13,6 +13,9 @@
         android:theme="@style/Theme.LINGApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.RegistrationPage.RegistrationPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LoginPage.LoginPageActivity"
             android:exported="false" />
         <activity
