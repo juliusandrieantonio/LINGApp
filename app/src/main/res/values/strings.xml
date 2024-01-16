@@ -52,4 +52,5 @@
     <string name="day_6_template">Day 6</string>
     <string name="greetings_template">Good Morning!</string>
     <string name="daily_reminder">Here is your daily reminder that. What you eat, is what you are!</string>
+    <string name="sun">picture of sun</string>
 </resources>
