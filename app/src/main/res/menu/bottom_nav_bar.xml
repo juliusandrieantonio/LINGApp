@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:contentDescription="@string/home_fragment"
+        android:icon="@drawable/home_smile_svgrepo_com"
+        app:showAsAction="ifRoom"
+        android:title="@string/home_fragment"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/restaurant"
+        android:contentDescription="@string/restaurant"
+        android:icon="@drawable/restaurant"
+        app:showAsAction="ifRoom"
+        android:title="@string/restaurant" />
+
+    <item
+        android:id="@+id/dashboard"
+        android:contentDescription="@string/dashboard"
+        android:icon="@drawable/person"
+        app:showAsAction="ifRoom"
+        android:title="@string/dashboard" />
+
+    <item
+        android:id="@+id/edit"
+        android:contentDescription="@string/edit"
+        android:icon="@drawable/border_color"
+        app:showAsAction="ifRoom"
+        android:title="@string/edit" />
+
+    <item
+        android:id="@+id/educationalResources"
+        android:contentDescription="@string/educational_resources"
+        android:icon="@drawable/auto_stories"
+        app:showAsAction="ifRoom"
+        android:title="@string/educational_resources" />
+</menu>

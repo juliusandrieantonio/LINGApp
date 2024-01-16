@@ -1,81 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.RegistrationPage.RegistrationPageActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/white"
+        >
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/materialToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/baseline_arrow_back_24"
             android:background="@color/white"
-            >
+            app:navigationIcon="@drawable/baseline_arrow_back_24">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:gravity="center"
+                android:orientation="horizontal"
                 android:padding="10dp">
+
                 <View
                     android:id="@+id/level1"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/lightPrimary"
-                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    />
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/lightPrimary" />
+
                 <View
                     android:id="@+id/level2"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    />
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light" />
+
                 <View
                     android:id="@+id/level3"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    />
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light" />
 
                 <View
                     android:id="@+id/level4"
                     android:layout_width="0dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/white"
-                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    />
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light" />
+
+                <View
+                    android:id="@+id/level5"
+                    android:layout_width="0dp"
+                    android:layout_height="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/light" />
 
                 <TextView
                     android:id="@+id/progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="@string/progress"
-                    android:textSize="18sp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="5dp"
                     android:fontFamily="@font/rubrick_moonrocks_regular"
-                    />
+                    android:text="@string/progress"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
             </LinearLayout>
         </com.google.android.material.appbar.MaterialToolbar>
@@ -87,9 +98,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:src="@drawable/banner"
-        android:layout_below="@+id/toolBar"
         android:contentDescription="@string/banner"
-        android:layout_above="@id/information"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        app:layout_constraintBottom_toTopOf="@+id/information"
+        android:minHeight="200dp"
         />
 
     <LinearLayout
@@ -97,9 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/rounded_top"
         android:backgroundTint="@color/lightPrimary"
         android:padding="20dp"
@@ -122,7 +132,7 @@
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textAlignment="center"
             android:fontFamily="@font/rubrick_moonrocks_regular"
             android:text="@string/prompt"
@@ -142,16 +152,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/name_prompt"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textAlignment="center"
                 />
 
             <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/dark"/>
 
             <EditText
                 android:textColorHint="@color/dark"
@@ -204,16 +215,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bmi_prompt"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textAlignment="center"
                 />
 
             <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/dark"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -302,16 +314,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/age_prompt"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textAlignment="center"
                 />
 
             <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/dark"/>
 
             <LinearLayout
                 android:id="@+id/birthdatePicker"
@@ -371,16 +384,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/gender_prompt"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textAlignment="center"
                 />
 
             <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/dark"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -478,11 +492,12 @@
                 />
 
             <View
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_height="2dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/dark"/>
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -543,7 +558,7 @@
                 android:backgroundTint="@color/light"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleDrawable="@drawable/show_password"
-                app:passwordToggleTint="@color/lightPrimary"
+                app:passwordToggleTint="@color/dark"
                 app:hintEnabled="false"
                 >
 
@@ -572,16 +587,17 @@
         <Button
             android:id="@+id/navButton"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:textSize="16sp"
             android:text="@string/button_prompt"
             android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/dark"
+            app:backgroundTint="@color/dark"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             />
 
     </LinearLayout>
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

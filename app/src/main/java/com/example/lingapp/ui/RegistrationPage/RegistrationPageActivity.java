@@ -1,19 +1,27 @@
 package com.example.lingapp.ui.RegistrationPage;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.ViewCompat;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.window.OnBackInvokedDispatcher;
 
 import com.example.lingapp.R;
 import com.example.lingapp.utils.RegistrationPageModel;
@@ -36,7 +44,7 @@ public class RegistrationPageActivity extends AppCompatActivity {
     private TextView progress, birthday, headerPrompt;
     private int currentLevel = 0, userAge = 0;
     private EditText nameET, middleNameET, surnameET, weightET, heightET, ageET, usernameET, emailET, passwordET;
-    private String finalName = "", finalMiddleName = "", finalSurname = "", finalWeight = "", finalHeight = "", finalBirthday = "", finalAge = "", finalGender = "", finalExperience = "", finalUsername = "", finalEmail = "", finalPassword = "";
+    private String finalName = "", finalMiddleName = "", finalSurname = "", finalWeight = "", finalHeight = "", finalBirthday = "", finalAge = "", finalGender = "", finalUsername = "", finalEmail = "", finalPassword = "";
     private Button navButton;
     private boolean isStart = true, isValid = false, isValidUsername = false;
 
@@ -61,6 +69,8 @@ public class RegistrationPageActivity extends AppCompatActivity {
         View level2 = findViewById(R.id.level2);
         View level3 = findViewById(R.id.level3);
         View level4 = findViewById(R.id.level4);
+        View level5 = findViewById(R.id.level5);
+        ImageView banner = findViewById(R.id.banner);
 
 
         nameET = findViewById(R.id.nameET);
@@ -88,6 +98,7 @@ public class RegistrationPageActivity extends AppCompatActivity {
         levels.add(level2);
         levels.add(level3);
         levels.add(level4);
+        levels.add(level5);
 
 
         prompts = new ArrayList<>();
@@ -155,13 +166,13 @@ public class RegistrationPageActivity extends AppCompatActivity {
         male.setOnClickListener(view -> {
             finalGender = "Male";
             removePicks(genders);
-//            male.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.drawable.selector_border));
+            male.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.color.light));
         });
 
         female.setOnClickListener(view -> {
             finalGender = "Female";
             removePicks(genders);
-//            female.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.drawable.selector_border));
+            female.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.color.light));
         });
 
         toolbar.setOnClickListener(view -> {
@@ -175,6 +186,36 @@ public class RegistrationPageActivity extends AppCompatActivity {
             builder.show();
         });
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (currentLevel > 0){
+                    progressView(levels.get(currentLevel), R.color.white);
+                    progressLayout(prompts.get(currentLevel), 0);
+                    currentLevel--;
+                    String levelText = ((currentLevel + 1) * 12.5) + "%";
+                    progress.setText(levelText);
+                    progressView(levels.get(currentLevel), R.color.lightPrimary);
+                    progressLayout(prompts.get(currentLevel), 1);
+                    navButton.setText(getString(R.string.next));
+                    if (currentLevel == 5) {
+                        navButton.setText(getString(R.string.validate));
+                        isValidUsername = false;
+                        isValid = false;
+                    }
+                    return;
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationPageActivity.this);
+                builder.setTitle("Warning Notice")
+                        .setMessage("Are you sure you want to go back to sign in page?")
+                        .setPositiveButton("Yes", (dialogInterface, i) -> finish())
+                        .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss())
+                        .create();
+
+                builder.show();
+            }
+        });
     }
     private void removePicks(ArrayList<LinearLayout> layouts) {
         for (LinearLayout layout: layouts){
@@ -322,5 +363,4 @@ public class RegistrationPageActivity extends AppCompatActivity {
         InputMethodManager imm =(InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
-
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lingapp.R;
+import com.example.lingapp.ui.HomePage.HomePageActivity;
 import com.example.lingapp.ui.LoginPage.LoginPageActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        startActivity(new Intent(getApplicationContext(), LoginPageActivity.class));
+        startActivity(new Intent(getApplicationContext(), HomePageActivity.class));
     }
 }

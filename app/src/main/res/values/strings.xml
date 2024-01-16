@@ -6,7 +6,7 @@
     <string name="password">Enter Password</string>
     <string name="forgotten_password">forgotten password?</string>
     <string name="or">or</string>
-    <string name="sign_up">sign up</string>
+    <string name="sign_up">Sign Up</string>
     <string name="progress">10%</string>
     <string name="banner">image of a diet plan</string>
     <string name="prompt">Hi, Welcome to LINGApp!</string>
@@ -24,12 +24,32 @@
     <string name="birthday_sample">03/28/02</string>
     <string name="sample_age">21</string>
     <string name="gender_prompt">What is your gender?</string>
-    <string name="male_icon">male icom</string>
+    <string name="male_icon">male icon</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="credentials_prompt">Almost done...</string>
     <string name="email">Enter Email</string>
-    <string name="next">next</string>
+    <string name="next">Next</string>
     <string name="header_prompt">Tell us about yourself</string>
     <string name="validate">validate</string>
+    <string name="loading_screen_prompt">loading screen</string>
+    <string name="home_fragment">Home</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="edit">Edit</string>
+    <string name="educational_resources">Educational resources</string>
+    <string name="menu">menu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_description">image of the item</string>
+    <string name="DYK_TEMPLATE">Did you know?</string>
+    <string name="short_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum et dui varius congue. Suspendisse convallis enim congue egestas faucibus.</string>
+    <string name="day_1_template">Day 1</string>
+    <string name="day_2_template">Day 2</string>
+    <string name="day_3_template">Day 3</string>
+    <string name="day_4_template">Day 4</string>
+    <string name="day_5_template">Day 5</string>
+    <string name="day_6_template">Day 6</string>
+    <string name="greetings_template">Good Morning!</string>
+    <string name="daily_reminder">Here is your daily reminder that. What you eat, is what you are!</string>
 </resources>
