@@ -7,13 +7,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.lingapp.R;
-import com.example.lingapp.ui.HomePage.Fragments.DashBoardFragment;
+import com.example.lingapp.ui.HomePage.Fragments.DashBoard.DashBoardFragment;
 import com.example.lingapp.ui.HomePage.Fragments.EditFragment;
-import com.example.lingapp.ui.HomePage.Fragments.EducationalResourcesFragment;
-import com.example.lingapp.ui.HomePage.Fragments.HomeFragment.HomeFragment;
-import com.example.lingapp.ui.HomePage.Fragments.MealPlanFragment.MealPlanFragment;
+import com.example.lingapp.ui.HomePage.Fragments.EducationalResources.EducationalResourcesFragment;
+import com.example.lingapp.ui.HomePage.Fragments.Home.HomeFragment;
+import com.example.lingapp.ui.HomePage.Fragments.MealPlan.MealPlanFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -31,7 +33,7 @@ public class HomePageActivity extends AppCompatActivity {
     private EditFragment editFragment;
     private DashBoardFragment dashBoardFragment;
     private EducationalResourcesFragment educationalResourcesFragment;
-
+    private ImageView search, manageUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,9 @@ public class HomePageActivity extends AppCompatActivity {
         dashBoardFragment = new DashBoardFragment();
         educationalResourcesFragment = new EducationalResourcesFragment();
 
+        search = findViewById(R.id.personSearch);
+        manageUser = findViewById(R.id.manageAcc);
+
         toolbar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == MENU){
                 mDrawer.openDrawer(GravityCompat.START);
@@ -60,11 +65,14 @@ public class HomePageActivity extends AppCompatActivity {
         switchFragment(homeFragment);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
+            search.setVisibility(View.GONE);
+            manageUser.setVisibility(View.GONE);
             if (item.getItemId() == HOME) {
                 switchFragment(homeFragment);
             }
             if (item.getItemId() == DASHBOARD) {
                 switchFragment(dashBoardFragment);
+                manageUser.setVisibility(View.VISIBLE);
             }
             if (item.getItemId() == EDIT) {
                 switchFragment(editFragment);
@@ -74,6 +82,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
             if (item.getItemId() == EDUCATIONAL_RESOURCES) {
                 switchFragment(educationalResourcesFragment);
+                search.setVisibility(View.VISIBLE);
             }
             return true;
         });

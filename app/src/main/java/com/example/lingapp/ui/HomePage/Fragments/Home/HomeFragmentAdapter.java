@@ -1,4 +1,4 @@
-package com.example.lingapp.ui.HomePage.Fragments.HomeFragment;
+package com.example.lingapp.ui.HomePage.Fragments.Home;
 
 import android.content.Context;
 import android.view.LayoutInflater;

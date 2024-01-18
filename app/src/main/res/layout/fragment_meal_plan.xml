@@ -4,10 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.HomePage.Fragments.MealPlanFragment.MealPlanFragment"
+    tools:context=".ui.HomePage.Fragments.MealPlan.MealPlanFragment"
     android:orientation="vertical">
-
-    <include layout="@layout/toolbar"/>
 
    <ScrollView
        android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.lingapp.ui.HomePage.Fragments;
+package com.example.lingapp.ui.HomePage.Fragments.DashBoard;
 
 import android.os.Bundle;
 

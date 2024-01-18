@@ -13,40 +13,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightPrimary"
+            android:fitsSystemWindows="true"
+            android:layoutDirection="rtl"
+            android:minHeight="?attr/actionBarSize"
+            android:visibility="visible"
+            app:menu="@menu/hamburger_menu"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/home_fragment"
+                android:textColor="@color/light"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            
+            <ImageView
+                android:contentDescription="@string/manage_account"
+                android:id="@+id/manageAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/manage_accounts"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/person_search"
+                android:id="@+id/personSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search"
+                android:visibility="gone"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
+            android:layout_below="@id/toolbar"
             android:layout_above="@+id/bottomNavBar"
             android:background="@color/white"
             >
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/lightPrimary"
-                android:fitsSystemWindows="true"
-                android:layoutDirection="rtl"
-                android:minHeight="?attr/actionBarSize"
-                android:visibility="visible"
-                app:menu="@menu/hamburger_menu"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-                <TextView
-                    android:id="@+id/toolbar_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/home_fragment"
-                    android:textColor="@color/light"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </androidx.appcompat.widget.Toolbar>
         </FrameLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

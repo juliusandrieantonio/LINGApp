@@ -3,11 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomePage.Fragments.HomeFragment.HomeFragment"
+    tools:context=".ui.HomePage.Fragments.Home.HomeFragment"
     android:orientation="vertical">
 
-
-    <include layout="@layout/toolbar"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

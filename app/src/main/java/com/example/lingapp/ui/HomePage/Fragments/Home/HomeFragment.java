@@ -1,4 +1,4 @@
-package com.example.lingapp.ui.HomePage.Fragments.HomeFragment;
+package com.example.lingapp.ui.HomePage.Fragments.Home;
 
 import android.app.Activity;
 import android.content.Context;
