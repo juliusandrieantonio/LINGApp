@@ -13,6 +13,22 @@
         android:theme="@style/Theme.LINGApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.DetailedLearningResources.DetailedLearningResourcesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.DetailedMealPlan.DetailedMealPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.BMIResullt.BMIResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CustomViews.CustomAlertDialogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.BMICalculator.BMICalculatorActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".ui.HomePage.HomePageActivity"
             android:exported="false" />
         <activity

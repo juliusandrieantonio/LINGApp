@@ -22,12 +22,12 @@
     <string name="cm">cm</string>
     <string name="age_prompt">How old are you?</string>
     <string name="birthday_sample">03/28/02</string>
-    <string name="sample_age">21</string>
+    <string name="sample_age">15</string>
     <string name="gender_prompt">What is your gender?</string>
     <string name="male_icon">male icon</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
-    <string name="credentials_prompt">Almost done...</string>
+    <string name="credentials_prompt">Almost done…</string>
     <string name="email">Enter Email</string>
     <string name="next">Next</string>
     <string name="header_prompt">Tell us about yourself</string>
@@ -37,7 +37,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="restaurant">Restaurant</string>
     <string name="edit">Edit</string>
-    <string name="educational_resources">Educational resources</string>
+    <string name="educational_resources">Educational Resources</string>
     <string name="menu">menu</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -59,10 +59,10 @@
     <string name="sample_cal">9,034</string>
     <string name="latest_measurement">Latest Measurement</string>
     <string name="carbs_icon">carbs icon</string>
-    <string name="carbohydrates">CARBOHYDRATES</string>
+    <string name="carbohydrates">Carbohydrates</string>
     <string name="sample_value">90g</string>
-    <string name="protein">PROTEIN</string>
-    <string name="calories">CALORIES</string>
+    <string name="protein">Proteins</string>
+    <string name="calories">Calories</string>
     <string name="lorem_title">Lorem Ipsum</string>
     <string name="pizza_icon">pizza icon</string>
     <string name="body_mass_index">BODY MASS INDEX</string>
@@ -78,4 +78,48 @@
     <string name="fat">Fat</string>
     <string name="carbs">carbs</string>
     <string name="pro">pro</string>
+    <string name="bmi_calculator">BMI Calculator</string>
+    <string name="age">Age</string>
+    <string name="sample_weight">58</string>
+    <string name="sample_height">160</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="invalid_template">INVALID LOREM IPSUM</string>
+    <string name="invalid_warning">Lorem Ipsum Dolor Sit Ammet Sans Scrit. Proin a ipsum et dui varius congue.</string>
+    <string name="okay">Okay</string>
+    <string name="bmi_result">BMI Result</string>
+    <string name="classification_normal">YOU ARE NORMAL</string>
+    <string name="classification_underweight">YOU ARE UNDERWEIGHT</string>
+    <string name="classification_overweight">YOU ARE OVERWEIGHT</string>
+    <string name="classification_obese">YOU ARE OBESE</string>
+    <string name="classification_extremely_obese">YOU ARE EXTREMELY OBESE</string>
+
+    <string name="classification_title_normal">What is being normal?</string>
+    <string name="classification_title_underweight">What is being underweight?</string>
+    <string name="classification_title_obese">What is being obese?</string>
+    <string name="classification_title_extremely_obese">What is being extremely obese</string>
+    <string name="classification_title_overweight">What is being overweight</string>
+
+    <string name="classification_description_normal">Being in the \"normal weight\" category according to BMI (Body Mass Index) means that your BMI falls within the range of 18.5 to 24.9. This classification is often considered a healthy weight range for most adults. If your BMI falls within this range, it suggests that your weight is proportionate to your height, which is associated with a lower risk of various health issues related to being underweight or overweight.</string>
+    <string name="intake_status">Intake Status</string>
+    <string name="sample_month">Jan</string>
+    <string name="sample_year">2024</string>
+    <string name="bmi_record">BMI Record</string>
+    <string name="sample_date">01-15-24</string>
+    <string name="status">Status</string>
+    <string name="filter">filter</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="long_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non rutrum metus. Duis rhoncus leo sed elit bibendum mollis. Suspendisse pellentesque tortor nulla, eu blandit purus semper ut. Donec tristique, tellus eu mollis blandit, dolor nulla consectetur lorem, non euismod ipsum lacus at arcu. Suspendisse viverra convallis sollicitudin.</string>
+    <string name="calories_sample">350 Kcal</string>
+    <string name="fats">Fats</string>
+    <string name="sample">0 g</string>
+    <string name="allergen_information">Allergen Information:</string>
+    <string name="allergen_information_sample">Contains egg, gluten, and milk</string>
+    <string name="snack">Snack</string>
+    <string name="lunch">Lunch</string>
+    <string name="add_meal">Add Meal</string>
+    <string name="dinner">Dinner</string>
+    <string name="total">Total</string>
+    <string name="educational_template">picture of the item</string>
+    <string name="tomatoes">Tomatoes</string>
+    <string name="very_long_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non rutrum metus. Donec tristique, tellus eu mollis blandit, dolor nulla consectetur lorem, non euismod ipsum lacus at arcu. Suspendisse viverra convallis sollicitudin. Morbi molestie gravida eros, eu tempor orci aliquet vel. Proin a nunc non diam lacinia vehicula. Aliquam at dui rutrum, sagittis mauris sit amet, posuere metus. In nibh sapien, condimentum nec risus et, egestas congue mauris. Fusce tincidunt facilisis lorem quis dictum. Aliquam non sagittis ex. Proin erat urna, consequat nec egestas in, malesuada ut sem. Ut dui lacus, dictum eu diam ut, blandit lacinia mauris.\n\nPraesent ultrices laoreet congue. In ut purus porta, sagittis elit vel, tempor massa. Quisque rhoncus lectus eget purus dapibus pulvinar. Integer pulvinar enim non nulla facilisis, placerat viverra diam condimentum. Phasellus id malesuada magna. Vestibulum sit amet porttitor felis. Morbi lacinia quam augue, eget consequat nunc euismod non. Sed ullamcorper dolor sit amet sagittis bibendum.</string>
 </resources>

@@ -71,6 +71,7 @@
                    android:layout_height="200dp"
                    android:orientation="horizontal">
                    <androidx.cardview.widget.CardView
+                       android:id="@+id/mealPlan1"
                        android:layout_width="0dp"
                        android:layout_height="match_parent"
                        android:layout_weight="1"

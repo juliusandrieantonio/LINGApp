@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.example.lingapp.R;
 import com.example.lingapp.ui.HomePage.Fragments.DashBoard.DashBoardFragment;
-import com.example.lingapp.ui.HomePage.Fragments.EditFragment;
+import com.example.lingapp.ui.HomePage.Fragments.History.HistoryFragment;
 import com.example.lingapp.ui.HomePage.Fragments.EducationalResources.EducationalResourcesFragment;
 import com.example.lingapp.ui.HomePage.Fragments.Home.HomeFragment;
 import com.example.lingapp.ui.HomePage.Fragments.MealPlan.MealPlanFragment;
@@ -30,7 +30,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private HomeFragment homeFragment;
     private MealPlanFragment mealPlanFragment;
-    private EditFragment editFragment;
+    private HistoryFragment editFragment;
     private DashBoardFragment dashBoardFragment;
     private EducationalResourcesFragment educationalResourcesFragment;
     private ImageView search, manageUser;
@@ -46,7 +46,7 @@ public class HomePageActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         homeFragment = new HomeFragment();
-        editFragment = new EditFragment();
+        editFragment = new HistoryFragment();
         mealPlanFragment = new MealPlanFragment();
         dashBoardFragment = new DashBoardFragment();
         educationalResourcesFragment = new EducationalResourcesFragment();

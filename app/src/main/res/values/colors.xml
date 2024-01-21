@@ -6,5 +6,8 @@
     <color name="lightPrimaryVariant">#F6C557</color>
     <color name="dark">#212121</color>
     <color name="light">#F6FFD4</color>
-
+    
+    <color name="calories">#CA6B6E</color>
+    <color name="carbs">#478F96</color>
+    <color name="fats">#D08726</color>
 </resources>

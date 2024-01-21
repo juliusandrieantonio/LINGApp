@@ -362,6 +362,7 @@
                 android:padding="20dp">
 
                 <TextView
+                    android:id="@+id/edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/body_mass_index"

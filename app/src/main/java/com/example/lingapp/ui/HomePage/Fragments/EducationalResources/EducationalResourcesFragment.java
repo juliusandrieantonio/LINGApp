@@ -34,7 +34,7 @@ public class EducationalResourcesFragment extends Fragment {
         models.add(model);
         models.add(model);
 
-        EducationalResourcesAdapter adapter = new EducationalResourcesAdapter(models, getContext());
+        EducationalResourcesAdapter adapter = new EducationalResourcesAdapter(models, getContext(), getActivity());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         return view;

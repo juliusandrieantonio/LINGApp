@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lingapp.R;
+import com.example.lingapp.ui.BMICalculator.BMICalculatorActivity;
 import com.example.lingapp.ui.HomePage.HomePageActivity;
 import com.example.lingapp.ui.LoginPage.LoginPageActivity;
 
