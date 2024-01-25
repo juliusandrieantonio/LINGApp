@@ -81,7 +81,7 @@
                        >
                        <LinearLayout
                            android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:orientation="vertical"
                            android:gravity="center_horizontal"
                            >
@@ -90,7 +90,7 @@
                                android:layout_height="0dp"
                                android:layout_weight="1"
                                android:scaleType="centerCrop"
-                               android:src="@drawable/template"
+                               android:src="@drawable/banner4"
                                android:contentDescription="@string/image_description"
                                />
 
@@ -114,10 +114,11 @@
                        app:cardElevation="3dp"
                        app:cardUseCompatPadding="true"
                        app:cardCornerRadius="20dp"
+                       android:id="@+id/mealPlan2"
                        >
                        <LinearLayout
                            android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:orientation="vertical"
                            android:gravity="center_horizontal"
                            >
@@ -126,7 +127,7 @@
                                android:layout_height="0dp"
                                android:layout_weight="1"
                                android:scaleType="centerCrop"
-                               android:src="@drawable/template"
+                               android:src="@drawable/banner1"
                                android:contentDescription="@string/image_description"
                                />
 
@@ -155,10 +156,11 @@
                        app:cardElevation="3dp"
                        app:cardUseCompatPadding="true"
                        app:cardCornerRadius="20dp"
+                       android:id="@+id/mealPlan3"
                        >
                        <LinearLayout
                            android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:orientation="vertical"
                            android:gravity="center_horizontal"
                            >
@@ -167,7 +169,7 @@
                                android:layout_height="0dp"
                                android:layout_weight="1"
                                android:scaleType="centerCrop"
-                               android:src="@drawable/template"
+                               android:src="@drawable/banner2"
                                android:contentDescription="@string/image_description"
                                />
 
@@ -191,10 +193,11 @@
                        app:cardElevation="3dp"
                        app:cardUseCompatPadding="true"
                        app:cardCornerRadius="20dp"
+                       android:id="@+id/mealPlan4"
                        >
                        <LinearLayout
                            android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:orientation="vertical"
                            android:gravity="center_horizontal"
                            >
@@ -203,7 +206,7 @@
                                android:layout_height="0dp"
                                android:layout_weight="1"
                                android:scaleType="centerCrop"
-                               android:src="@drawable/template"
+                               android:src="@drawable/banner3"
                                android:contentDescription="@string/image_description"
                                />
 
@@ -232,10 +235,11 @@
                        app:cardElevation="3dp"
                        app:cardUseCompatPadding="true"
                        app:cardCornerRadius="20dp"
+                       android:id="@+id/mealPlan5"
                        >
                        <LinearLayout
                            android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:orientation="vertical"
                            android:gravity="center_horizontal"
                            >
@@ -244,7 +248,7 @@
                                android:layout_height="0dp"
                                android:layout_weight="1"
                                android:scaleType="centerCrop"
-                               android:src="@drawable/template"
+                               android:src="@drawable/banner5"
                                android:contentDescription="@string/image_description"
                                />
 
@@ -268,10 +272,11 @@
                        app:cardElevation="3dp"
                        app:cardUseCompatPadding="true"
                        app:cardCornerRadius="20dp"
+                       android:id="@+id/mealPlan6"
                        >
                        <LinearLayout
                            android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:orientation="vertical"
                            android:gravity="center_horizontal"
                            >
@@ -280,7 +285,7 @@
                                android:layout_height="0dp"
                                android:layout_weight="1"
                                android:scaleType="centerCrop"
-                               android:src="@drawable/template"
+                               android:src="@drawable/banner6"
                                android:contentDescription="@string/image_description"
                                />
 

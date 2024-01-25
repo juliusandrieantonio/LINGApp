@@ -57,7 +57,7 @@
                 android:textSize="18sp"
                 android:layout_marginBottom="10dp"
                 />
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,6 +78,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/bfCal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/calories_sample"
@@ -108,6 +109,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/bfCarbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -138,6 +140,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/bfPro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -168,6 +171,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/bfFats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -177,24 +181,7 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-            
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information"
-                android:textColor="@color/dark"
-                android:textSize="18sp"
-                />
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information_sample"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -236,6 +223,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/fsCal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/calories_sample"
@@ -266,6 +254,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/fsCarbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -296,6 +285,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/fsPro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -326,6 +316,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/fsFats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -338,23 +329,6 @@
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information_sample"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lunch"
@@ -393,6 +367,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/lCal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/calories_sample"
@@ -423,6 +398,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/lCarbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -453,6 +429,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/lPro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -483,6 +460,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/lFats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -492,24 +470,6 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information_sample"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -551,6 +511,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/ssCal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/calories_sample"
@@ -587,6 +548,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:layout_marginEnd="10dp"
+                        android:id="@+id/ssCarbs"
                         />
                 </LinearLayout>
                 <View
@@ -617,6 +579,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:layout_marginEnd="10dp"
+                        android:id="@+id/ssPro"
                         />
                 </LinearLayout>
                 <View
@@ -641,6 +604,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/ssFats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -651,25 +615,9 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/allergen_information_sample"
-                android:textSize="18sp"
-                android:textColor="@color/dark"
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dinner"
@@ -708,6 +656,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/dCal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/calories_sample"
@@ -738,6 +687,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/dCarbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -774,6 +724,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:layout_marginEnd="10dp"
+                        android:id="@+id/dPro"
                         />
                 </LinearLayout>
                 <View
@@ -798,6 +749,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/dFats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -813,11 +765,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/allergen_information"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textColor="@color/dark"
+                android:fontFamily="@font/poppins_bold"
                 />
 
             <TextView
+                android:id="@+id/allergenInformation"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -825,6 +779,7 @@
                 android:textSize="18sp"
                 android:textColor="@color/dark"
                 />
+
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -835,7 +790,6 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_bold"
                 />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -856,6 +810,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/tCal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/calories_sample"
@@ -886,6 +841,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/tCarbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -916,6 +872,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/tPro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"
@@ -946,6 +903,7 @@
                         android:layout_weight="1"
                         />
                     <TextView
+                        android:id="@+id/tFats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample"

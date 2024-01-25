@@ -99,8 +99,42 @@
         app:itemTextColor="@color/black"
         app:itemIconTint="@color/black"
         app:subheaderColor="@color/black"
+        app:headerLayout="@layout/nav_drawer_header"
         app:menu="@menu/nav_view_menu"
-        />
-<!--        app:itemBackground="@color/nav_drawer_background_item"-->
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:paddingStart="20dp"
+            android:paddingEnd="30dp"
+            android:paddingBottom="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                app:drawableStartCompat="@drawable/home"
+                android:textColor="@color/dark"
+                android:drawablePadding="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                app:drawableStartCompat="@drawable/logout"
+                android:textColor="@color/dark"
+                android:drawablePadding="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

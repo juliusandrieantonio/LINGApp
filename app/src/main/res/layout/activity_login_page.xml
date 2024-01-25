@@ -227,4 +227,13 @@
             />
 
     </RelativeLayout>
+    <ImageView
+        android:id="@+id/customProgressBar"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:src="@drawable/loading_screen"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/loading_screen_prompt"
+        android:visibility="invisible"
+        />
 </RelativeLayout>

@@ -1,6 +1,9 @@
 package com.example.lingapp.ui.RegistrationPage;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -8,12 +11,18 @@ import androidx.core.view.ViewCompat;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +32,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.window.OnBackInvokedDispatcher;
 
+import com.bumptech.glide.Glide;
 import com.example.lingapp.R;
+import com.example.lingapp.ui.CustomViews.CustomAlertDialogActivity;
+import com.example.lingapp.ui.HomePage.HomePageActivity;
 import com.example.lingapp.utils.RegistrationPageModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,21 +46,26 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
-public class RegistrationPageActivity extends AppCompatActivity {
-    private final Calendar calendar = Calendar.getInstance();
-    private final String myDateFormat = "MM/dd/yy";
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat(myDateFormat, Locale.US);
+public class RegistrationPageActivity extends AppCompatActivity implements IRegistrationPage{
     private ArrayList<View> levels;
     private ArrayList<LinearLayout> prompts;
-    private TextView progress, birthday, headerPrompt;
+    private TextView progress, headerPrompt;
     private int currentLevel = 0, userAge = 0;
     private EditText nameET, middleNameET, surnameET, weightET, heightET, ageET, usernameET, emailET, passwordET;
-    private String finalName = "", finalMiddleName = "", finalSurname = "", finalWeight = "", finalHeight = "", finalBirthday = "", finalAge = "", finalGender = "", finalUsername = "", finalEmail = "", finalPassword = "";
+    private String finalName = "", finalMiddleName = "", finalSurname = "", finalGender = "", finalUsername = "", finalEmail = "", finalPassword = "";
+    private double finalWeight = 0.0, finalHeight = 0.0;
     private Button navButton;
     private boolean isStart = true, isValid = false, isValidUsername = false;
 
     private static final String REGEX_EMAIL = "^[a-z0-9](\\.?[a-z0-9]){5,}@g(oogle)?mail\\.com$";
+    private RegistrationPageModel model;
+    private TextView fileName;
+    private ImageView profilePic;
+    private Uri finalUri = null;
+    private Animation animation;
+    private ImageView customProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,34 +74,35 @@ public class RegistrationPageActivity extends AppCompatActivity {
 
         MaterialToolbar toolbar = findViewById(R.id.materialToolbar);
 
+        model = new RegistrationPageModel(this);
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        customProgressBar = findViewById(R.id.customProgressBar);
+
         LinearLayout namePrompt = findViewById(R.id.namePrompt);
-        LinearLayout birthdayPrompt = findViewById(R.id.birthdayPrompt);
-        LinearLayout birthdayPicker = findViewById(R.id.birthdatePicker);
         LinearLayout bmiPrompt = findViewById(R.id.bmiPrompt);
         LinearLayout genderPrompt = findViewById(R.id.genderPrompt);
         LinearLayout credentialsPrompt = findViewById(R.id.credentialsPrompt);
-
+        LinearLayout picturePrompt = findViewById(R.id.picturePrompt);
+        LinearLayout imageSelector = findViewById(R.id.imageSelector);
 
         View level1 = findViewById(R.id.level1);
         View level2 = findViewById(R.id.level2);
         View level3 = findViewById(R.id.level3);
         View level4 = findViewById(R.id.level4);
         View level5 = findViewById(R.id.level5);
-        ImageView banner = findViewById(R.id.banner);
-
 
         nameET = findViewById(R.id.nameET);
         middleNameET = findViewById(R.id.middleNameET);
         surnameET = findViewById(R.id.surnameET);
         weightET = findViewById(R.id.weightET);
         heightET = findViewById(R.id.heightET);
-        ageET = findViewById(R.id.ageET);
-        birthday = findViewById(R.id.birthday);
         headerPrompt = findViewById(R.id.headerPrompt);
         emailET = findViewById(R.id.emailET);
         usernameET = findViewById(R.id.usernameET);
         passwordET = findViewById(R.id.passwordET);
         progress = findViewById(R.id.progress);
+        fileName = findViewById(R.id.fileName);
+        profilePic = findViewById(R.id.profilePic);
 
         LinearLayout male = findViewById(R.id.male);
         LinearLayout female = findViewById(R.id.female);
@@ -100,66 +118,41 @@ public class RegistrationPageActivity extends AppCompatActivity {
         levels.add(level4);
         levels.add(level5);
 
-
         prompts = new ArrayList<>();
         prompts.add(namePrompt);
         prompts.add(bmiPrompt);
-        prompts.add(birthdayPrompt);
         prompts.add(genderPrompt);
         prompts.add(credentialsPrompt);
+        prompts.add(picturePrompt);
 
         // clicking next
         navButton = findViewById(R.id.navButton);
         navButton.setOnClickListener(view -> {
             if (isStart){
-                progressView(levels.get(currentLevel), R.color.lightPrimary);
+                progressView(levels.get(currentLevel), R.color.light);
                 progressLayout(prompts.get(currentLevel), 1);
                 isStart = false;
                 headerPrompt.setText(getString(R.string.header_prompt));
                 navButton.setText(getString(R.string.next));
-                String levelText = ((currentLevel + 1) * 12.5) + "%";
+                String levelText = ((currentLevel + 1) * 20) + "%";
                 progress.setText(levelText);
                 return;
             }
 
             if (isCorrect()){
-                if (currentLevel >= 5){
-//                    customProgressBar.startAnimation(animation);
-//                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                    String imageSrc = (isUser ? user.getPhotoUrl().toString(): null);
-//                    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
-//                    Date date = new Date();
-//                    RegistrationPageModel model = new RegistrationPageModel(finalName, finalMiddleName, finalSurname, finalName, finalWeight, finalHeight, finalBirthday, finalAge, finalGender, finalExperience, finalUsername, finalEmail, formatter.format(date), imageSrc);
-//                    presenter.createNewUser(finalEmail, finalPassword, model, isUser);
+                if (currentLevel >= 4) {
+                    finalUsername = usernameET.getText().toString();
+                    finalEmail = emailET.getText().toString();
+                    finalPassword = passwordET.getText().toString();
+                    isValid = true;
+                    customProgressBar.startAnimation(animation);
+                    RegistrationPageModel registrationPageModel = new RegistrationPageModel(finalUsername, finalEmail, finalGender, finalName, finalMiddleName, finalSurname, finalWeight, finalHeight);
+                    model.createNewUser(registrationPageModel, finalPassword, finalUri);
                     return;
                 }
                 progress();
             }
 
-        });
-// initializing birthday text by the current date
-        birthday.setText(dateFormat.format(calendar.getTime()));
-        int curYear = calendar.get(Calendar.YEAR);
-
-        // getting the picked birthday
-        DatePickerDialog.OnDateSetListener date = (view, year, month, day) -> {
-            calendar.set(Calendar.YEAR, year);
-            calendar.set(Calendar.MONTH,month);
-            calendar.set(Calendar.DAY_OF_MONTH,day);
-            birthday.setTextColor(getColor(R.color.black));
-            birthday.setText(dateFormat.format(calendar.getTime()));
-            userAge = curYear - year;
-            String ageString = userAge + " yrs old";
-            ageET.setText(ageString);
-            finalBirthday = birthday.getText().toString();
-        };
-
-
-        // picking birthdate
-        birthdayPicker.setOnClickListener(view -> {
-            new DatePickerDialog(RegistrationPageActivity.this, date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))
-                    .show();
-            ageET.setError(null);
         });
 
         // controls for picking gender
@@ -179,7 +172,7 @@ public class RegistrationPageActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationPageActivity.this);
             builder.setTitle("Warning Notice")
                     .setMessage("Are you sure you want to go back to sign in page?")
-                    .setPositiveButton("Yes", (dialogInterface, i) -> super.onBackPressed())
+                    .setPositiveButton("Yes", (dialogInterface, i) -> finish())
                     .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss())
                     .create();
 
@@ -190,10 +183,10 @@ public class RegistrationPageActivity extends AppCompatActivity {
             @Override
             public void handleOnBackPressed() {
                 if (currentLevel > 0){
-                    progressView(levels.get(currentLevel), R.color.white);
+                    progressView(levels.get(currentLevel), R.color.light);
                     progressLayout(prompts.get(currentLevel), 0);
                     currentLevel--;
-                    String levelText = ((currentLevel + 1) * 12.5) + "%";
+                    String levelText = ((currentLevel + 1) * 20) + "%";
                     progress.setText(levelText);
                     progressView(levels.get(currentLevel), R.color.lightPrimary);
                     progressLayout(prompts.get(currentLevel), 1);
@@ -216,6 +209,31 @@ public class RegistrationPageActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
+
+
+        ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
+                registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
+                    // Callback is invoked after the user selects a media item or closes the
+                    // photo picker.
+                    if (uri != null) {
+                        Glide.with(RegistrationPageActivity.this)
+                                .load(uri)
+                                .centerCrop()
+                                .circleCrop()
+                                .into(profilePic);
+                        fileName.setText(uri.getPath());
+                        finalUri = uri;
+                        int flag = Intent.FLAG_GRANT_READ_URI_PERMISSION;
+                        RegistrationPageActivity.this.getContentResolver().takePersistableUriPermission(finalUri, flag);
+                    } else {
+                        Toast.makeText(this, "No image is selected.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        imageSelector.setOnClickListener(view -> pickMedia.launch(new PickVisualMediaRequest.Builder()
+                .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                .build()));
     }
     private void removePicks(ArrayList<LinearLayout> layouts) {
         for (LinearLayout layout: layouts){
@@ -223,7 +241,6 @@ public class RegistrationPageActivity extends AppCompatActivity {
         }
     }
     private boolean isCorrect(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationPageActivity.this);
         switch (currentLevel) {
             case 0:
                 if (finalName.isEmpty() && finalSurname.isEmpty()) {
@@ -245,7 +262,7 @@ public class RegistrationPageActivity extends AppCompatActivity {
                 break;
 
             case 1:
-                if (finalWeight.isEmpty() && finalHeight.isEmpty()) {
+                if (finalWeight == 0.0 && finalHeight == 0.0) {
                     if (weightET.getText().toString().isEmpty()){
                         weightET.setError("Please add your weight first");
                         weightET.requestFocus();
@@ -256,45 +273,24 @@ public class RegistrationPageActivity extends AppCompatActivity {
                         heightET.requestFocus();
                         return false;
                     }
-                    finalWeight = weightET.getText().toString();
-                    finalHeight = heightET.getText().toString();
+                    finalWeight = Double.parseDouble(weightET.getText().toString());
+                    finalHeight = Double.parseDouble(heightET.getText().toString());
                 }
                 hideSoftKeyboard(heightET);
                 break;
 
             case 2:
-                if (finalAge.isEmpty()){
-                    if (userAge == 0){
-                        builder.setTitle("Warning Notice")
-                                .setMessage("Sorry but birthday is a required field, please add your birthday to continue.")
-                                .setPositiveButton("Okay", (dialogInterface, i) -> dialogInterface.dismiss()).create();
-                        builder.show();
-                        return false;
-                    }
-                    if (userAge < 17){
-                        builder.setTitle("Warning Notice")
-                                .setMessage("Sorry but you must be 17 or above to use this application.")
-                                .setPositiveButton("Okay", (dialogInterface, i) -> dialogInterface.dismiss()).create();
-                        builder.show();
-                        return false;
-                    }
-                    finalAge = String.valueOf(userAge);
-                }
-                break;
-
-            case 3:
                 if (finalGender.isEmpty()){
-                    builder.setTitle("Warning Notice")
-                            .setMessage("Sorry but gender is a required field, please select your gender to continue!")
-                            .setPositiveButton("Okay", (dialogInterface, i) -> dialogInterface.dismiss()).create();
-                    builder.show();
+                    CustomAlertDialogActivity customAlertDialogActivity = new CustomAlertDialogActivity(RegistrationPageActivity.this, "Alert Notice", "Sorry but you have to choose a gender to continue.");
+                    Objects.requireNonNull(customAlertDialogActivity.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    customAlertDialogActivity.show();
                     return false;
                 }
                 navButton.setText(getString(R.string.validate));
                 break;
 
 
-            case 5:
+            case 3:
                 if (finalEmail.isEmpty() && finalPassword.isEmpty()){
                     if (usernameET.getText().toString().isEmpty()){
                         usernameET.setError("Username cannot be empty!");
@@ -329,10 +325,19 @@ public class RegistrationPageActivity extends AppCompatActivity {
                     }
                     hideSoftKeyboard(passwordET);
                     if (!isValid) {
-//                        customProgressBar.startAnimation(animation);
-//                        presenter.hasUser("username", usernameET.getText().toString());
+                        customProgressBar.startAnimation(animation);
+                        model.hasUser("username", usernameET.getText().toString());
                         return false;
                     }
+                }
+                break;
+
+            case 4:
+                if (finalUri == null) {
+                    CustomAlertDialogActivity customAlertDialogActivity = new CustomAlertDialogActivity(RegistrationPageActivity.this, "Alert Notice", "Sorry but you have to choose a profile picture to continue.");
+                    Objects.requireNonNull(customAlertDialogActivity.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    customAlertDialogActivity.show();
+                    return false;
                 }
                 break;
 
@@ -343,10 +348,10 @@ public class RegistrationPageActivity extends AppCompatActivity {
     }
 
     private void progress() {
-        progressView(levels.get(currentLevel), R.color.white);
+        progressView(levels.get(currentLevel), R.color.light);
         progressLayout(prompts.get(currentLevel), 0);
         currentLevel += 1;
-        String levelText = ((currentLevel + 1) * 12.5) + "%";
+        String levelText = ((currentLevel + 1) * 20) + "%";
         progress.setText(levelText);
         progressView(levels.get(currentLevel), R.color.lightPrimary);
         progressLayout(prompts.get(currentLevel), 1);
@@ -362,5 +367,54 @@ public class RegistrationPageActivity extends AppCompatActivity {
     public void hideSoftKeyboard(View view){
         InputMethodManager imm =(InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    @Override
+    public void onCreateNewUser(boolean verdict, String message) {
+        customProgressBar.clearAnimation();
+        if (verdict) {
+            startActivity(new Intent(getApplicationContext(), HomePageActivity.class));
+            finish();
+            return;
+        }
+        Toast.makeText(this, "Sorry " + message, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void hasUser(boolean verdict) {
+        customProgressBar.clearAnimation();
+        if (!isValidUsername) {
+            if (verdict){
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationPageActivity.this);
+                builder.setTitle("Warning Notice")
+                        .setMessage("Sorry but the provided username is currently in use, please change the username or forgot the password in login page if " +
+                                "you forgot it.")
+                        .setPositiveButton("Okay", (dialogInterface, i) -> dialogInterface.dismiss())
+                        .create();
+
+                builder.show();
+                return;
+            }
+            isValidUsername = true;
+            model.hasUser("email", emailET.getText().toString());
+            return;
+        }
+        if (verdict){
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationPageActivity.this);
+            builder.setTitle("Warning Notice")
+                    .setMessage("Sorry but the provided email address is currently a user, please change the email address or forgot the password in login page if " +
+                            "you forgot it.")
+                    .setPositiveButton("Okay", (dialogInterface, i) -> dialogInterface.dismiss())
+                    .create();
+
+            builder.show();
+            isValidUsername = false;
+            return;
+        }
+        Toast.makeText(this, "Thank you for validating, you can now continue!", Toast.LENGTH_SHORT).show();
+        isValid = true;
+        navButton.setText(getString(R.string.create));
+        progress();
     }
 }

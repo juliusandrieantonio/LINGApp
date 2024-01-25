@@ -122,4 +122,15 @@
     <string name="educational_template">picture of the item</string>
     <string name="tomatoes">Tomatoes</string>
     <string name="very_long_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non rutrum metus. Donec tristique, tellus eu mollis blandit, dolor nulla consectetur lorem, non euismod ipsum lacus at arcu. Suspendisse viverra convallis sollicitudin. Morbi molestie gravida eros, eu tempor orci aliquet vel. Proin a nunc non diam lacinia vehicula. Aliquam at dui rutrum, sagittis mauris sit amet, posuere metus. In nibh sapien, condimentum nec risus et, egestas congue mauris. Fusce tincidunt facilisis lorem quis dictum. Aliquam non sagittis ex. Proin erat urna, consequat nec egestas in, malesuada ut sem. Ut dui lacus, dictum eu diam ut, blandit lacinia mauris.\n\nPraesent ultrices laoreet congue. In ut purus porta, sagittis elit vel, tempor massa. Quisque rhoncus lectus eget purus dapibus pulvinar. Integer pulvinar enim non nulla facilisis, placerat viverra diam condimentum. Phasellus id malesuada magna. Vestibulum sit amet porttitor felis. Morbi lacinia quam augue, eget consequat nunc euismod non. Sed ullamcorper dolor sit amet sagittis bibendum.</string>
+    <string name="create">create</string>
+    <string name="sample_name">Julius Andrie Antonio</string>
+    <string name="sample_email">juliusandrie28@gmail.com</string>
+    <string name="keep_in_touch">Keep in touch!</string>
+    <string name="contact_us">contact us</string>
+    <string name="about_us">about us</string>
+    <string name="home">home</string>
+    <string name="logout">logout</string>
+    <string name="say_cheese">Say Cheese!!!</string>
+    <string name="profile_picture">profile_picture</string>
+    <string name="no_image_selected">No image selected!</string>
 </resources>
