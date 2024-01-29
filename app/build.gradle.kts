@@ -7,6 +7,9 @@ android {
     namespace = "com.example.lingapp"
     compileSdk = 34
 
+    lint {
+        disable.add("Instantiatable")
+    }
     defaultConfig {
         applicationId = "com.example.lingapp"
         minSdk = 26
