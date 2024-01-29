@@ -2,6 +2,7 @@ package com.example.lingapp.ui.BMICalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -9,27 +10,45 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.lingapp.R;
 import com.example.lingapp.ui.BMIResullt.BMIResultActivity;
 import com.example.lingapp.ui.CustomViews.CustomAlertDialogActivity;
+import com.example.lingapp.ui.HomePage.HomePageActivity;
 import com.example.lingapp.ui.RegistrationPage.RegistrationPageActivity;
+import com.example.lingapp.utils.BMICalculatorModel;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
-public class BMICalculatorActivity extends AppCompatActivity {
+public class BMICalculatorActivity extends AppCompatActivity implements IBMICalculator{
     private String finalGender = "";
+    private String classification = "";
+    private Animation animation;
+    private ImageView customProgressBar;
+    private double result = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmicalculator);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(v -> finish());
+
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        customProgressBar = findViewById(R.id.customProgressBar);
 
         LinearLayout male = findViewById(R.id.male);
         LinearLayout female = findViewById(R.id.female);
@@ -42,7 +61,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
         ArrayList<LinearLayout> genders = new ArrayList<>();
         genders.add(male);
         genders.add(female);
-
+        BMICalculatorModel model = new BMICalculatorModel(this);
         male.setOnClickListener(view -> {
             finalGender = "Male";
             removePicks(genders);
@@ -64,14 +83,34 @@ public class BMICalculatorActivity extends AppCompatActivity {
             double height = (heightText.isEmpty() ? 0.0: Double.parseDouble(heightText));
 
             if (isOkay(age, weight, height)) {
+                calculate.setEnabled(false);
+                customProgressBar.startAnimation(animation);
                 double result = weight / Math.pow((height / 100), 2);
                 DecimalFormat decimalFormat = new DecimalFormat("0.00");
                 decimalFormat.setRoundingMode(RoundingMode.UP);
-                Log.i("TAG", "onCreate: " + result);
-                Intent intent = new Intent(getApplicationContext(), BMIResultActivity.class);
-                intent.putExtra("gender", finalGender);
-                intent.putExtra("result", Double.parseDouble(decimalFormat.format(result)));
-                startActivity(intent);
+                Date date = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault());
+                if (result > 0.0) {
+                    if (result <= 18.5) {
+                        classification = "Underweight";
+                    }
+                    else if (result <= 24.9) {
+                        classification = "Normal";
+                    }
+                    else if (result <= 29.9) {
+                        classification = "Overweight";
+                    }
+                    else if (result <= 39.9) {
+                        classification = "Obese";
+                    }
+                    else if (result >= 40.0) {
+                        classification = "Extremely Obese";
+                    }
+                }
+                this.result = Double.parseDouble(decimalFormat.format(result));
+                long millis = System.currentTimeMillis();
+                BMICalculatorModel bmiCalculatorModel = new BMICalculatorModel(height, weight, classification, format.format(date), finalGender);
+                model.addData(bmiCalculatorModel, millis);
             }
         });
     }
@@ -120,5 +159,20 @@ public class BMICalculatorActivity extends AppCompatActivity {
         for (LinearLayout layout: layouts){
             layout.setBackground(AppCompatResources.getDrawable(getApplicationContext(), R.color.white));
         }
+    }
+
+    @Override
+    public void onGetData(boolean verdict, String message) {
+        customProgressBar.clearAnimation();
+        if (verdict) {
+            Intent intent = new Intent(getApplicationContext(), BMIResultActivity.class);
+            intent.putExtra("gender", finalGender);
+            intent.putExtra("classification", classification);
+            intent.putExtra("result", result);
+            startActivity(intent);
+            finish();
+            return;
+        }
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

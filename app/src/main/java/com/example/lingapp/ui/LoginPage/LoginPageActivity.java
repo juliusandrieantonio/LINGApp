@@ -11,9 +11,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lingapp.R;
+import com.example.lingapp.ui.ForgotPassword.ForgotPasswordActivity;
 import com.example.lingapp.ui.HomePage.HomePageActivity;
 import com.example.lingapp.ui.RegistrationPage.RegistrationPageActivity;
 import com.example.lingapp.utils.LoginPageModel;
@@ -27,13 +29,17 @@ public class LoginPageActivity extends AppCompatActivity implements ILoginPage {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
-
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
         customProgressBar = findViewById(R.id.customProgressBar);
         usernameET = findViewById(R.id.usernameET);
         passwordET = findViewById(R.id.passwordET);
         Button login = findViewById(R.id.logIn);
         Button signup = findViewById(R.id.signUp);
+        TextView forgotPassword = findViewById(R.id.forgotPassword);
+
+        forgotPassword.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), ForgotPasswordActivity.class));
+        });
         model = new LoginPageModel(this);
         login.setOnClickListener(view -> {
             String username = usernameET.getText().toString();

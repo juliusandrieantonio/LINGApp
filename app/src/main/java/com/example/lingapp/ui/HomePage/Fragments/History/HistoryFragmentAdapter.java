@@ -40,20 +40,20 @@ public class HistoryFragmentAdapter extends RecyclerView.Adapter<HistoryFragment
         HistoryFragmentModel model = models.get(position);
         holder.height.setText(String.valueOf(model.getHeight()));
         holder.weight.setText(String.valueOf(model.getWeight()));
-        holder.status.setText(String.valueOf(model.getStatus()));
-        if (model.getStatus().equals("Underweight")) {
+        holder.status.setText(String.valueOf(model.getClassification()));
+        if (model.getClassification().equals("Underweight")) {
             holder.actionImage.setImageDrawable(Objects.requireNonNull(staticClass.getImages().get(model.getGender())).get(0));
         }
-        if (model.getStatus().equals("Normal")) {
+        if (model.getClassification().equals("Normal")) {
             holder.actionImage.setImageDrawable(Objects.requireNonNull(staticClass.getImages().get(model.getGender())).get(1));
         }
-        if (model.getStatus().equals("Overweight")) {
+        if (model.getClassification().equals("Overweight")) {
             holder.actionImage.setImageDrawable(Objects.requireNonNull(staticClass.getImages().get(model.getGender())).get(2));
         }
-        if (model.getStatus().equals("Obese")) {
+        if (model.getClassification().equals("Obese")) {
             holder.actionImage.setImageDrawable(Objects.requireNonNull(staticClass.getImages().get(model.getGender())).get(3));
         }
-        if (model.getStatus().equals("Extremely Obese")) {
+        if (model.getClassification().equals("Extremely Obese")) {
             holder.actionImage.setImageDrawable(Objects.requireNonNull(staticClass.getImages().get(model.getGender())).get(4));
         }
 

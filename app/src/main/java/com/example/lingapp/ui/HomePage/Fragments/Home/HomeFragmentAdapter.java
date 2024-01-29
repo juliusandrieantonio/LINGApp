@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lingapp.R;
@@ -34,7 +35,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
     @Override
     public void onBindViewHolder(@NonNull HomeFragmentAdapter.ViewHolder holder, int position) {
         HomeFragmentModel model = models.get(position);
-
+        holder.imageView.setImageDrawable(AppCompatResources.getDrawable(context, model.getDrawable()));
         holder.description.setText(model.getDescription());
     }
 

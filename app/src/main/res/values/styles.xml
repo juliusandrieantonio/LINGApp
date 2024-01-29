@@ -2,7 +2,14 @@
 <resources>
     <style name="app_custom_indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/light</item>
+    </style>
+    <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/lightPrimary</item>  // you can change the color of the yearPiker dialog
+        <item name="android:textColorPrimary">@color/lightPrimaryVariant</item> // you can change the color of the yearPiker dialog
+    </style>
 
+    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
 </resources>

@@ -7,6 +7,7 @@
     <color name="dark">#212121</color>
     <color name="light">#F6FFD4</color>
     <color name="error">#C10000</color>
+    <color name="gray">#BEBEBE</color>
 
     <color name="calories">#CA6B6E</color>
     <color name="carbs">#478F96</color>

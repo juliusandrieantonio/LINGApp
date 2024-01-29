@@ -2,6 +2,7 @@ package com.example.lingapp.ui.HomePage.Fragments.Home;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -35,7 +36,9 @@ public class HomeFragment extends Fragment {
 
         ArrayList<HomeFragmentModel> models = new ArrayList<>();
         String template = activity.getString(R.string.short_paragraph);
-        HomeFragmentModel model = new HomeFragmentModel("", template);
+
+        // add content here
+        HomeFragmentModel model = new HomeFragmentModel(R.drawable.template, template);
         models.add(model);
         models.add(model);
         models.add(model);

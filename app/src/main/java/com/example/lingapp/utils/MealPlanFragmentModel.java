@@ -36,44 +36,6 @@ public class MealPlanFragmentModel {
         this.iMealPlan = iMealPlan;
     }
 
-    public void getData() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    double weight = snapshot.child("weight").getValue(Double.class);
-                    double height = snapshot.child("height").getValue(Double.class);
-                    double result = weight / Math.pow((height / 100), 2);
-                    if (result <= 18.5) {
-                        iMealPlan.onGetData("underWeight");
-                        return;
-                    }
-                    if (result <= 24.9) {
-                        iMealPlan.onGetData("normal");
-                        return;
-                    }
-                    if (result <= 29.9) {
-                        iMealPlan.onGetData("overweight");
-                        return;
-                    }
-                    if (result <= 39.9) {
-                        iMealPlan.onGetData("obese");
-                        return;
-                    }
-                    if (result >= 40.0) {
-                        iMealPlan.onGetData("extremelyObese");
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
     public double getHeight() {
         return height;
     }

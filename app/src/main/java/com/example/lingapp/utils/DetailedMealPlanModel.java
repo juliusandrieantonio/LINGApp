@@ -1,8 +1,13 @@
 package com.example.lingapp.utils;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.lingapp.ui.DetailedMealPlan.IDetailedMealPlan;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +38,12 @@ public class DetailedMealPlanModel {
         this.protein = protein;
         this.meals = meals;
     }
+    public DetailedMealPlanModel(int carbs, int calories, int fats, int protein) {
+        this.carbs = carbs;
+        this.calories = calories;
+        this.fats = fats;
+        this.protein = protein;
+    }
 
     public DetailedMealPlanModel(IDetailedMealPlan iDetailedPlan) {
         databaseReference = FirebaseDatabase.getInstance().getReference("mealPlan");
@@ -42,10 +53,16 @@ public class DetailedMealPlanModel {
     public void getMealPlan(String weight, String day) {
         Map<String, DetailedMealPlanModel> days = new HashMap<>();
         allergenInformation = "";
+
+        // remove it when you already placed the meal plan for the two
+        if (weight.equals("obese") || weight.equals("extremelyObese")) {
+            weight = "overweight";
+        }
         databaseReference.child(weight).child(day).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot day: snapshot.getChildren()) {
+
                     if (!Objects.equals(day.getKey(), "allergenInformation")) {
                         ArrayList<String> meal = new ArrayList<>();
                         DetailedMealPlanModel model = day.child("nutritionFacts").getValue(DetailedMealPlanModel.class);
@@ -71,6 +88,17 @@ public class DetailedMealPlanModel {
         });
     }
 
+    public void addData(DetailedMealPlanModel model, String year, String month, String day) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        databaseReference = databaseReference.getRoot().child("users").child(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+        databaseReference.child("intakes").child(year).child(month).child(day).setValue(model).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                iDetailedPlan.onAddMeal(true, "");
+            }
+        }).addOnFailureListener(e -> {
+            iDetailedPlan.onAddMeal(false, e.getLocalizedMessage());
+        });
+    }
 
     public int getCarbs() {
         return carbs;
@@ -106,5 +134,27 @@ public class DetailedMealPlanModel {
                 ", protein=" + protein +
                 ", meals=" + meals +
                 '}';
+    }
+
+    public void isAdded(String year, String month, String day) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        databaseReference = databaseReference.getRoot().child("users").child(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+        databaseReference.child("intakes").child(year).child(month).child(day).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    iDetailedPlan.onCheck(true, "");
+                    return;
+                }
+                else {
+                    iDetailedPlan.onCheck(false, "");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                iDetailedPlan.onCheck(false, error.getDetails());
+            }
+        });
     }
 }

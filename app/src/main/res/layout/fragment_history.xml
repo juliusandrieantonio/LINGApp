@@ -29,9 +29,10 @@
                 app:drawableTint="@color/white"
                 android:drawablePadding="10dp"
                 app:drawableEndCompat="@drawable/baseline_keyboard_arrow_down_24"
-
+                android:id="@+id/monthFilter"
                 />
             <TextView
+                android:id="@+id/yearFilter"
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +97,9 @@
             android:id="@+id/recyclerView"
             android:layout_marginTop="10dp"
             android:nestedScrollingEnabled="false"
+            android:visibility="invisible"
             />
+        <include layout="@layout/empty_card_template"/>
     </LinearLayout>
     
 </androidx.core.widget.NestedScrollView>

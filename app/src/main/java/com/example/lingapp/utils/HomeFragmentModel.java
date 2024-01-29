@@ -1,18 +1,18 @@
 package com.example.lingapp.utils;
 public class HomeFragmentModel {
-    private String imageUrl;
+    private int drawable;
     private String Description;
 
     public HomeFragmentModel() {
 
     }
-    public HomeFragmentModel(String imageUrl, String description) {
-        this.imageUrl = imageUrl;
+    public HomeFragmentModel(int drawable, String description) {
+        this.drawable = drawable;
         Description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public int getDrawable() {
+        return drawable;
     }
 
     public String getDescription() {

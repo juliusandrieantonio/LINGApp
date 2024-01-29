@@ -50,12 +50,13 @@
             <ImageView
                 android:layout_marginStart="10dp"
                 android:contentDescription="@string/person_search"
-                android:id="@+id/personSearch"
+                android:id="@+id/menu_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/search"
+                android:src="@drawable/baseline_dehaze_24"
                 android:visibility="gone"
                 />
+
         </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
@@ -88,6 +89,15 @@
             app:itemIconTint="@color/dark"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_nav_bar" />
+        <ImageView
+            android:id="@+id/customProgressBar"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:src="@drawable/loading_screen"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/loading_screen_prompt"
+            android:visibility="invisible"
+            />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -98,42 +108,24 @@
         android:background="@android:color/white"
         app:itemTextColor="@color/black"
         app:itemIconTint="@color/black"
+        app:itemBackground="@color/drawer_item"
         app:subheaderColor="@color/black"
         app:headerLayout="@layout/nav_drawer_header"
         app:menu="@menu/nav_view_menu"
     >
-        <LinearLayout
+        <TextView
+            android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:text="@string/logout"
+            app:drawableStartCompat="@drawable/logout"
+            android:textColor="@color/dark"
+            android:drawablePadding="10dp"
+            android:fontFamily="sans-serif-medium"
             android:layout_gravity="bottom"
-            android:paddingStart="20dp"
-            android:paddingEnd="30dp"
-            android:paddingBottom="20dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/home"
-                app:drawableStartCompat="@drawable/home"
-                android:textColor="@color/dark"
-                android:drawablePadding="10dp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"/>
-
-            <TextView
-                android:id="@+id/logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/logout"
-                app:drawableStartCompat="@drawable/logout"
-                android:textColor="@color/dark"
-                android:drawablePadding="10dp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center_vertical"
-                android:padding="10dp"/>
-        </LinearLayout>
+            android:padding="10dp"
+            android:background="@color/drawer_item"
+            android:layout_margin="20dp"/>
 
     </com.google.android.material.navigation.NavigationView>
 

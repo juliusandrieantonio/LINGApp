@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lingapp.R;
@@ -45,8 +46,11 @@ public class EducationalResourcesAdapter extends RecyclerView.Adapter<Educationa
         holder.card.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetailedLearningResourcesActivity.class);
             intent.putExtra("name", model.getName());
+            intent.putExtra("drawable", model.getDrawable());
+            intent.putExtra("descri", model.getDescription());
             activity.startActivity(intent);
         });
+        holder.image.setImageDrawable(AppCompatResources.getDrawable(context, model.getDrawable()));
     }
 
     @Override
