@@ -21,6 +21,7 @@ public class DetailedLearningResourcesActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.title);
         TextView description = findViewById(R.id.description);
         ImageView banner = findViewById(R.id.imageBanner);
+        TextView toolbar_title = findViewById(R.id.toolbar_title);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
@@ -30,6 +31,7 @@ public class DetailedLearningResourcesActivity extends AppCompatActivity {
             title.setText(intent.getStringExtra("name"));
             description.setText(intent.getStringExtra("descri"));
             banner.setImageDrawable(AppCompatResources.getDrawable(getApplicationContext(), intent.getIntExtra("drawable", R.drawable.tomato_sample)));
+            toolbar_title.setText(intent.getStringExtra("name"));
         }
     }
 }

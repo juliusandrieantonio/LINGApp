@@ -3,6 +3,7 @@ package com.example.lingapp.ui.ForgotPassword;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,7 +35,8 @@ public class ForgotPasswordActivity extends AppCompatActivity implements IForgot
         customProgressBar = findViewById(R.id.customProgressBar);
         forgotPassword = findViewById(R.id.forgotPassword);
         emailET = findViewById(R.id.emailET);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(v -> finish());
         forgotPassword.setOnClickListener(view -> {
             if (isCorrect()) {
                 customProgressBar.startAnimation(animation);
